@@ -1,7 +1,19 @@
 import { Component } from 'react';
 import './_Todo.scss';
-class Todo extends Component {
-  constructor(props) {
+type MyProps = {
+  item: {
+    title: string;
+    id: number;
+    done: boolean;
+  };
+};
+type MyState = {
+  title: string;
+  id: number;
+  done: boolean;
+};
+class Todo extends Component<MyProps, MyState> {
+  constructor(props: MyProps) {
     super(props);
     this.state = {
       title: props.item.title,
