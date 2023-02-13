@@ -19,7 +19,6 @@ class TaskActivator extends Component<MyPropsFunc> {
   render(): ReactNode {
     return (
       <>
-        {console.log(this.props)}
         <input
           value={this.state.title}
           onChange={(e) => this.setState({ title: e.target.value })}
