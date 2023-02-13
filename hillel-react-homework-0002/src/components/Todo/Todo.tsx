@@ -1,17 +1,6 @@
 import { Component } from 'react';
+import { MyProps, MyState } from '../../types/types';
 import './_Todo.scss';
-type MyProps = {
-  item: {
-    title: string;
-    id: number;
-    done: boolean;
-  };
-};
-type MyState = {
-  title: string;
-  id: number;
-  done: boolean;
-};
 class Todo extends Component<MyProps, MyState> {
   constructor(props: MyProps) {
     super(props);

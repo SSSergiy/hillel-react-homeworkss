@@ -1,15 +1,9 @@
 import { Component, ReactNode } from 'react';
+import { MyPropsFunc } from '../../types/types';
 import './_TaskActivator.scss';
-type MyProps = {
-  addState: (states: MyState) => void;
-};
-type MyState = {
-  title: string;
-  id: number;
-  done: boolean;
-};
-class TaskActivator extends Component<MyProps> {
-  constructor(props: MyProps) {
+
+class TaskActivator extends Component<MyPropsFunc> {
+  constructor(props: MyPropsFunc) {
     super(props);
   }
   state = {

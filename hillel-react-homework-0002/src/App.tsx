@@ -1,11 +1,12 @@
 import { Component, ReactNode } from 'react';
 import TaskActivator from './components/TaskActivator/TaskActivator';
 import Todo from './components/Todo/Todo';
+import { MyState } from './types/types';
 import './_App.scss';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props: {}) {
+    super(props);
   }
   state = {
     value: '',
@@ -27,7 +28,7 @@ class App extends Component {
       }
     ]
   };
-  addTodo = (item) => {
+  addTodo = (item: MyState) => {
     this.setState({
       todoList: [...this.state.todoList, item]
     });
