@@ -1,34 +1,52 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { Component } from 'react';
+import './App.css';
+import data from './data.json';
+import { translations } from './translations';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+export default class App extends Component {
+  render() {
+    return (
+      <table>
+        <thead>
+          <tr>
+            <td>
+              <strong>{translations.titleName}</strong>
+            </td>
+            <td>
+              <strong>{translations.titleUsername}</strong>
+            </td>
+            <td>
+              <strong>{translations.titlePhone}</strong>
+            </td>
+            <td>
+              <strong>{translations.titleAction}</strong>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item) => {
+            return (
+              <tr>
+                <td>{item.name}</td>
+                <td>{item.username}</td>
+                <td>{item.phone}</td>
+                <td>
+                  <button>{translations.buttonDelete}</button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>
+              <button>{translations.buttonModal}</button>
+            </td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    );
+  }
 }
-
-export default App
