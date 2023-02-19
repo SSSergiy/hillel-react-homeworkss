@@ -12,22 +12,11 @@ export default class Modal extends Component<ModalProps> {
     super(props);
   }
 
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
   handleSubmit = (e) => {
-    let idOBJ = uuidv4();
-    this.props.addUsers({ ...e, idOBJ });
+    this.props.addUsers({ ...e, id: uuidv4() });
     this.props.modalClosed();
+    e={}
   };
-  initialValues = () => {
-    return {
-      username: '',
-      phone: '',
-      name: '',
-    };
-  };
-
   validate = (values) => {
     const errors = {};
     if (!values.name) {
@@ -42,6 +31,15 @@ export default class Modal extends Component<ModalProps> {
 
     return errors;
   };
+
+  submiting = (handleSubmit, values) => {
+    handleSubmit();
+    setTimeout(() => {
+      values.name = "";
+      values.username = "";
+      values.phone = "";
+    }, 400)
+  }
   render() {
     return (
       <div id="popup" className={`popup ${this.props.modalOpened ? 'popups' : null}`}>
@@ -56,12 +54,25 @@ export default class Modal extends Component<ModalProps> {
                   name: '',
                   username: '',
                   phone: '',
+                
                 }}
+                reset
                 validateOnBlur
                 onSubmit={this.handleSubmit}
               >
-                {({ handleSubmit, handleChange, handleBlur, values, touched, errors }) => (
-                  <Form onSubmit={handleSubmit}>
+                {({ handleSubmit, handleChange, handleBlur, values, touched, errors, resetForm, isSubmitting, isValid }) => (
+                  <Form
+                    onSubmit={() => { this.submiting(handleSubmit,values) }}
+                    // onSubmit={() => {
+                    //   handleSubmit();
+                    //   values.name = "";
+                    //   values.phone = "";
+                    //   values.username = "";
+                    
+                      
+                      
+                    // }}
+                  >
                     <Input
                       handleBlur={handleBlur}
                       handleChanges={handleChange}
@@ -97,7 +108,9 @@ export default class Modal extends Component<ModalProps> {
                     />
                     <div className="div-modal">
                       <div>
-                        <button type="submit">{modalTranslations.formButtonSave}</button>
+                        <button type="submit" disabled={!isValid}>
+                          {modalTranslations.formButtonSave}
+                        </button>
                       </div>
                       <div>
                         <button type="button" onClick={this.props.modalClosed}>
