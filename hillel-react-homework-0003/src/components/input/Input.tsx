@@ -2,8 +2,9 @@ import { ErrorMessage } from 'formik';
 import { Component } from 'react';
 import InputMask from 'react-input-mask';
 import { translations } from '../../translations';
-export default class Input extends Component {
-  constructor(props) {
+import { PropsInput } from '../../types/types';
+export default class Input extends Component<PropsInput> {
+  constructor(props: PropsInput) {
     super(props);
   }
   render() {
@@ -17,9 +18,7 @@ export default class Input extends Component {
               className="form-control"
               name="phone"
               type="tel"
-              onChange={
-                this.props.handleChanges
-              }
+              onChange={this.props.handleChanges}
               onBlur={this.props.handleBlur}
               placeholder={this.props.placeholder}
               value={this.props.values}
@@ -29,9 +28,7 @@ export default class Input extends Component {
           ) : (
             <input
               className="form-control"
-              onChange={
-                this.props.handleChanges
-              }
+              onChange={this.props.handleChanges}
               onBlur={this.props.handleBlur}
               placeholder={this.props.placeholder}
               type={this.props.type}

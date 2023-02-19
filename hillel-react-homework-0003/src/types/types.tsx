@@ -13,7 +13,12 @@ export type AppProps = {
 };
 
 export type AppObj = {
-  id: string;
+  id?: string;
+  name?: string;
+  username?: string;
+  phone?: string;
+};
+export type ValuesObj = {
   name: string;
   username: string;
   phone: string;
@@ -32,4 +37,31 @@ export type InputProps = {
   type: string;
   name: string;
   valueName: string;
+};
+
+export type PropsInput = {
+  errors: {
+    id?: string;
+    name?: string;
+    username?: string;
+    phone?: string;
+  };
+  handleBlur: () => void;
+  handleChanges: () => void;
+  htmlFor: string;
+  name: string;
+  placeholder: string;
+
+  touched: {
+    id?: boolean;
+    name?: boolean;
+    username?: boolean;
+    phone?: boolean;
+  };
+  type: string;
+  values: {
+    name?: string;
+    username?: string;
+    phone?: string;
+  };
 };

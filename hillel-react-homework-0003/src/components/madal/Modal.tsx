@@ -2,7 +2,7 @@ import { Form, Formik } from 'formik';
 import { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { translations } from '../../translations';
-import { ModalProps } from '../../types/types';
+import { AppObj, ModalProps } from '../../types/types';
 import Input from '../input/Input';
 import { validationSchema } from '../validation/validation';
 const { modalTranslations } = translations;
@@ -12,13 +12,13 @@ export default class Modal extends Component<ModalProps> {
     super(props);
   }
 
-  handleSubmit = (e) => {
+  handleSubmit = (e: AppObj) => {
     this.props.addUsers({ ...e, id: uuidv4() });
     this.props.modalClosed();
-    e={}
+    e = {};
   };
-  validate = (values) => {
-    const errors = {};
+  validate = (values: AppObj) => {
+    const errors: AppObj = {};
     if (!values.name) {
       errors.name = 'errors.name Required';
     }
@@ -32,14 +32,14 @@ export default class Modal extends Component<ModalProps> {
     return errors;
   };
 
-  submiting = (handleSubmit, values) => {
+  submiting = (handleSubmit: void, values: AppObj) => {
     handleSubmit();
     setTimeout(() => {
-      values.name = "";
-      values.username = "";
-      values.phone = "";
-    }, 400)
-  }
+      values.name = '';
+      values.username = '';
+      values.phone = '';
+    }, 400);
+  };
   render() {
     return (
       <div id="popup" className={`popup ${this.props.modalOpened ? 'popups' : null}`}>
@@ -54,7 +54,6 @@ export default class Modal extends Component<ModalProps> {
                   name: '',
                   username: '',
                   phone: '',
-                
                 }}
                 reset
                 validateOnBlur
@@ -62,16 +61,9 @@ export default class Modal extends Component<ModalProps> {
               >
                 {({ handleSubmit, handleChange, handleBlur, values, touched, errors, resetForm, isSubmitting, isValid }) => (
                   <Form
-                    onSubmit={() => { this.submiting(handleSubmit,values) }}
-                    // onSubmit={() => {
-                    //   handleSubmit();
-                    //   values.name = "";
-                    //   values.phone = "";
-                    //   values.username = "";
-                    
-                      
-                      
-                    // }}
+                    onSubmit={() => {
+                      this.submiting(handleSubmit, values);
+                    }}
                   >
                     <Input
                       handleBlur={handleBlur}
