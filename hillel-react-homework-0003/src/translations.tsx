@@ -1,18 +1,5 @@
 export const translations = {
-  titleTable: [
-    {
-      title: 'Name',
-    },
-    {
-      title: 'Username',
-    },
-    {
-      title: 'Phone',
-    },
-    {
-      title: 'Action',
-    },
-  ],
+  titleTable: [{ title: 'Name' }, { title: 'Username' }, { title: 'Phone' }, { title: 'Action' }],
 
   buttonDelete: 'DELETE',
   buttonModal: 'ADD PERSON',
