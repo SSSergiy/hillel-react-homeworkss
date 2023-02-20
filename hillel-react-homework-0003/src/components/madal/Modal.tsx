@@ -11,12 +11,6 @@ export default class Modal extends Component<ModalProps> {
   constructor(props: ModalProps) {
     super(props);
   }
-
-  handleSubmit = (e: AppObj) => {
-    this.props.addUsers({ ...e, id: uuidv4() });
-    this.props.modalClosed();
-    e = {};
-  };
   validate = (values: AppObj) => {
     const errors: AppObj = {};
     if (!values.name) {
@@ -28,17 +22,16 @@ export default class Modal extends Component<ModalProps> {
     if (!values.phone) {
       errors.phone = 'errors.phone Required';
     }
-
     return errors;
   };
-
-  submiting = (handleSubmit: void, values: AppObj) => {
-    handleSubmit();
-    setTimeout(() => {
-      values.name = '';
-      values.username = '';
-      values.phone = '';
-    }, 400);
+  
+  submiting = (resetForm) => {
+    setTimeout(()=>resetForm(), 400);
+  };
+  handleSubmit = (e: AppObj) => {
+    this.props.addUsers({ ...e, id: uuidv4() });
+    this.props.modalClosed();
+    e = {};
   };
   render() {
     return (
@@ -55,16 +48,12 @@ export default class Modal extends Component<ModalProps> {
                   username: '',
                   phone: '',
                 }}
-                reset
+                
                 validateOnBlur
                 onSubmit={this.handleSubmit}
               >
                 {({ handleSubmit, handleChange, handleBlur, values, touched, errors, resetForm, isSubmitting, isValid }) => (
-                  <Form
-                    onSubmit={() => {
-                      this.submiting(handleSubmit, values);
-                    }}
-                  >
+                  <Form>
                     <Input
                       handleBlur={handleBlur}
                       handleChanges={handleChange}
@@ -100,7 +89,7 @@ export default class Modal extends Component<ModalProps> {
                     />
                     <div className="div-modal">
                       <div>
-                        <button type="submit" disabled={!isValid}>
+                        <button type="submit" disabled={!isValid} onClick={()=>{this.submiting(resetForm)}}>
                           {modalTranslations.formButtonSave}
                         </button>
                       </div>

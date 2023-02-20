@@ -12,7 +12,7 @@ export default class Input extends Component<PropsInput> {
       <>
         <ErrorMessage name={this.props.name} component="span" className="alert alert-danger" />
         <label>
-          {this.props.errors[this.props.name] ? this.props.name + this.props.errors[this.props.name] : this.props.name}
+          {this.props.errors[this.props.name] ? this.props.name + this.props.errors[this.props.name] : this.props.name} 
           {this.props.name === translations.modalTranslations.inputNamePhone ? (
             <InputMask
               className="form-control"
