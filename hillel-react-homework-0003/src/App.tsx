@@ -2,7 +2,7 @@ import { Component, ReactNode } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import Modal from './components/madal/Modal';
-import { AppObj, AppProps, AppState } from './types/types';
+import AppObj, { AppProps, AppState } from './types/types';
 
 import { translations } from './translations';
 
@@ -52,7 +52,7 @@ export default class App extends Component<AppProps, AppState> {
                   <td>{item.username}</td>
                   <td>{item.phone}</td>
                   <td>
-                    <button onClick={():void => this.deleteUsers(item.id)}>{translations.buttonDelete}</button>
+                    <button onClick={(): void => this.deleteUsers(item.id)}>{translations.buttonDelete}</button>
                   </td>
                 </tr>
               );

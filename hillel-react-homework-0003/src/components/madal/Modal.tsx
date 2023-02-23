@@ -2,7 +2,7 @@ import { Form, Formik } from 'formik';
 import { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { translations } from '../../translations';
-import { AppObj, ModalProps } from '../../types/types';
+import AppObj, { ModalProps } from '../../types/types';
 import Input from '../input/Input';
 import { validationSchema } from '../validation/validation';
 const { modalTranslations } = translations;
@@ -24,9 +24,9 @@ export default class Modal extends Component<ModalProps> {
     }
     return errors;
   };
-  
+
   submiting = (resetForm) => {
-    setTimeout(()=>resetForm(), 400);
+    setTimeout(() => resetForm(), 400);
   };
   handleSubmit = (e: AppObj) => {
     this.props.addUsers({ ...e, id: uuidv4() });
@@ -48,7 +48,6 @@ export default class Modal extends Component<ModalProps> {
                   username: '',
                   phone: '',
                 }}
-                
                 validateOnBlur
                 onSubmit={this.handleSubmit}
               >
@@ -89,7 +88,13 @@ export default class Modal extends Component<ModalProps> {
                     />
                     <div className="div-modal">
                       <div>
-                        <button type="submit" disabled={!isValid} onClick={()=>{this.submiting(resetForm)}}>
+                        <button
+                          type="submit"
+                          disabled={!isValid}
+                          onClick={() => {
+                            this.submiting(resetForm);
+                          }}
+                        >
                           {modalTranslations.formButtonSave}
                         </button>
                       </div>
