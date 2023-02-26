@@ -57,7 +57,7 @@ const Api: FC<ApiProps> = ({ stateCategories: { Peoples, Planets, Starships } })
     }
   };
 
-  const newLocal = itemsState.map(({ id, name }) => (
+  const renderTitleComponent = itemsState.map(({ id, name }) => (
     <TitleComponent
       key={id}
       itemName={name}
@@ -76,7 +76,7 @@ const Api: FC<ApiProps> = ({ stateCategories: { Peoples, Planets, Starships } })
           dense
           sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         >
-          {newLocal}
+          {renderTitleComponent}
         </List>
         <List dense sx={{ width: '100%', maxWidth: 360 }}>
           <KartisComponent kartisProps={personState} />
