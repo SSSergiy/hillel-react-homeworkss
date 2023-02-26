@@ -9,11 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.11.9",
+    "@mui/material": "^5.11.10",
     "@types/uuid": "^9.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-spinners": "^0.13.8",
     "swapi-ts": "^1.0.1",
     "uuid": "^9.0.0"

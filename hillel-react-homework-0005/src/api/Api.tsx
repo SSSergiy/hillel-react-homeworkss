@@ -1,12 +1,11 @@
+import List from '@mui/material/List';
 import { useEffect, useState } from 'react';
 import { RingLoader } from 'react-spinners';
 import { v4 as uuidv4 } from 'uuid';
 import KartisComponent from '../components/KartisComponent/KartisComponent';
 import TitleComponent from '../components/TitleComponent/TitleComponent';
 
-const Api = ({ stateCategories }) => {
-  console.log(stateCategories);
-
+const Api = ({ stateCategories: { Peoples, Planets, Starships } }) => {
   const [itemsState, setItemsState] = useState([]);
   const [personState, setPersonState] = useState({
     birth_year: '19BBY',
@@ -18,24 +17,20 @@ const Api = ({ stateCategories }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const requestData = () => {
-    if (stateCategories.Peoples) {
+    if (Peoples) {
       return 'people';
     }
-    if (stateCategories.Planets) {
+    if (Planets) {
       return 'planets';
     }
-    if (stateCategories.Starships) {
+    if (Starships) {
       return 'starships';
     }
   };
 
   useEffect(() => {
     fetchData();
-  }, [
-    stateCategories.Peoples,
-    stateCategories.Planets,
-    stateCategories.Starships
-  ]);
+  }, [Peoples, Planets, Starships]);
 
   const fetchData = async () => {
     setIsLoading(true);
@@ -49,7 +44,9 @@ const Api = ({ stateCategories }) => {
           }))
         )
       );
-    setIsLoading(false);
+			setTimeout(() => {
+				setIsLoading(false);
+			}, 2000);
   };
 
   const clickHandle = (id) => {
@@ -60,36 +57,31 @@ const Api = ({ stateCategories }) => {
   };
 
   return (
-    <tbody>
-      <tr>
-        <td>{isLoading && <RingLoader loading={isLoading} />}</td>
-        <td>{isLoading && <RingLoader loading={isLoading} />}</td>
-      </tr>
-      <tr
+    <div>
+      <div
         style={{
           display: 'flex',
           justifyContent: 'space-around'
         }}
       >
-        <td>
-          <ul>
-            {itemsState.map((item) => (
-              <TitleComponent
-                key={item.id}
-                itemName={item.name}
-                handleClick={() => clickHandle(item.id)}
-              />
-            ))}
-          </ul>
-        </td>
-        <td>
-          <div>
-            <KartisComponent kartisProps={personState} />
-            {isLoading && <RingLoader loading={isLoading} />}
-          </div>
-        </td>
-      </tr>
-    </tbody>
+        <List
+          dense
+          sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
+        >
+          {itemsState.map(({ id, name }) => (
+            <TitleComponent
+              key={id}
+              itemName={name}
+              handleClick={() => clickHandle(id)}
+            />
+          ))}
+        </List>
+        <List dense sx={{ width: '100%', maxWidth: 360 }}>
+          <KartisComponent kartisProps={personState} />
+        </List>
+      </div>
+      {isLoading && <RingLoader loading={isLoading} />}
+    </div>
   );
 };
 
