@@ -21,43 +21,67 @@ export default class KartisComponent extends Component {
     } = this.props.kartisProps;
 
     return (
-      <div>
-        <table
-          style={{ borderRadius: 10, border: '2px solid red', padding: 15 }}
-        >
-          <thead>
-            <tr>
-              <td>{name}</td>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>{gender || population || starship_class}</td>
-            </tr>
-            <tr>
-              <td>{birth_year || rotation_period || hyperdrive_rating}</td>
-            </tr>
-            <tr>
-              <td>{eye_color || diameter || length}</td>
-            </tr>
-            <tr>
-              <td>
-                <img
-                  src={objPiple[name]}
-                  alt={name}
-                  style={{
-                    minWidth: 400,
-                    minHeight: 300,
-                    maxWidth: 400,
-                    maxHeight: 300,
-                    borderRadius: 10
-                  }}
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <table style={{ border: '2px solid red', padding: 15 }}>
+        <thead>
+          <tr>
+            <td>
+              <h4>{name}</h4>
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>
+                {(gender ? 'GENDER: ' + gender : '') ||
+                  (population ? 'POPULATION: ' + population : '') ||
+                  (starship_class ? 'STARSHIP CLASS: ' + starship_class : '')}
+              </strong>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>
+                {birth_year
+                  ? 'BIRTH YEAR: ' + birth_year
+                  : '' || rotation_period
+                  ? 'ROTATION PERIOD: ' + rotation_period
+                  : '' || hyperdrive_rating
+                  ? 'HYPERDIVE RATING: ' + hyperdrive_rating
+                  : ''}
+              </strong>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <b>
+                {eye_color
+                  ? 'EYE COLOR: ' + eye_color
+                  : '' || diameter
+                  ? 'DIAMETER: ' + diameter
+                  : '' || length
+                  ? 'LENGTH: ' + length
+                  : ''}
+              </b>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img
+                src={objPiple[name]}
+                alt={name}
+                style={{
+                  minWidth: 400,
+                  minHeight: 300,
+                  maxWidth: 400,
+                  maxHeight: 300,
+                  borderRadius: 10
+                }}
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     );
   }
 }
