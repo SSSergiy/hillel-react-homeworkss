@@ -4,7 +4,6 @@ import { RingLoader } from 'react-spinners';
 import { v4 as uuidv4 } from 'uuid';
 import KartisComponent from '../components/KartisComponent/KartisComponent';
 import TitleComponent from '../components/TitleComponent/TitleComponent';
-import { css } from '@emotion/react';
 
 const Api = ({ stateCategories: { Peoples, Planets, Starships } }) => {
   const [itemsState, setItemsState] = useState([]);
@@ -45,9 +44,9 @@ const Api = ({ stateCategories: { Peoples, Planets, Starships } }) => {
           }))
         )
       );
-			setTimeout(() => {
-				setIsLoading(false);
-			}, 2000);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   };
 
   const clickHandle = (id) => {
@@ -57,6 +56,13 @@ const Api = ({ stateCategories: { Peoples, Planets, Starships } }) => {
     }
   };
 
+  const newLocal = itemsState.map(({ id, name }) => (
+    <TitleComponent
+      key={id}
+      itemName={name}
+      handleClick={() => clickHandle(id)}
+    />
+  ));
   return (
     <div style={{ position: 'relative' }}>
       <div
@@ -69,27 +75,18 @@ const Api = ({ stateCategories: { Peoples, Planets, Starships } }) => {
           dense
           sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
         >
-          {itemsState.map(({ id, name }) => (
-            <TitleComponent
-              key={id}
-              itemName={name}
-              handleClick={() => clickHandle(id)}
-            />
-          ))}
+          {newLocal}
         </List>
         <List dense sx={{ width: '100%', maxWidth: 360 }}>
           <KartisComponent kartisProps={personState} />
         </List>
-			
-			</div>
+      </div>
       <RingLoader
         size={150}
         color={'#123abc'}
         loading={isLoading}
         css={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
       />
-   
-      {/* {isLoading && <RingLoader loading={isLoading} size={900} />} */}
     </div>
   );
 };
