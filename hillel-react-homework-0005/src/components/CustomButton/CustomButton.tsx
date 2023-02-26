@@ -1,14 +1,19 @@
 import Button from '@mui/material/Button';
-
-const CustomButton = (props) => {
+import { FC } from 'react';
+interface CustomButtonProps {
+  title: string;
+  itemMaps: { [key: string]: boolean };
+  stateButtons: () => void;
+  }
+const CustomButton: FC<CustomButtonProps> = ({ title, itemMaps, stateButtons }) => {
   return (
     <Button
       variant='contained'
       color='success'
-      onClick={() => props.stateButtons()}
-      disabled={props.itemMaps[props.title]}
+      onClick={() => stateButtons()}
+      disabled={itemMaps[title]}
     >
-      {props.title}
+      {title}
     </Button>
   );
 };
