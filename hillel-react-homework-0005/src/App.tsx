@@ -21,10 +21,10 @@ export default function App(): JSX.Element {
       key={uuidv4()}
       itemMaps={stateButtons}
       title={itemMap.title}
-      stateButtons={(): void => newFunction(itemMap)}
+      stateButtons={(): void => changeButtons(itemMap)}
     />
   ));
-  function newFunction(itemMap: { title: string }): void {
+  function changeButtons(itemMap: { title: string }): void {
     return setStateButtons({
       ...stateButtons,
       [titles.filter((itemFilter) => itemFilter.title !== itemMap.title)[0]
