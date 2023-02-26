@@ -5,6 +5,6 @@ export default class TitleComponent extends Component {
 	super(props);
 	}
   render() {
-		return <button onClick={this.props.handleClick}>{ this.props.itemName}</button>;
+		return <button style={{width:350}} onClick={this.props.handleClick}>{ this.props.itemName}</button>;
   }
 }

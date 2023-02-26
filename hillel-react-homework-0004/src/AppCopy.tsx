@@ -24,7 +24,6 @@ export default class AppCopy extends Component {
       isLoading: false
     };
   }
-
   requestData = () => {
     if (this.state.titleState.Peoples) {
       return 'people';
@@ -55,7 +54,6 @@ export default class AppCopy extends Component {
       };
     }
   }
-
   componentDidMount() {
     this.fetchData();
   }
@@ -92,7 +90,6 @@ export default class AppCopy extends Component {
       });
     }
   };
-
   render() {
     const { isLoading } = this.state;
     return (
@@ -101,7 +98,6 @@ export default class AppCopy extends Component {
           <td>{isLoading && <RingLoader loading={isLoading} />}</td>
           <td>{isLoading && <RingLoader loading={isLoading} />}</td>
         </tr>
-
         <tr
           style={{
             display: 'flex',

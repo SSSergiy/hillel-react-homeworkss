@@ -1,11 +1,9 @@
+import { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 import AppCopy from './AppCopy';
-import { titles } from './translations/translations';
-
-import { Component } from 'react';
 import Button from './components/Button';
-
+import { titles } from './translations/translations';
 export default class App extends Component {
   state = {
     stateButtons: {
@@ -14,15 +12,13 @@ export default class App extends Component {
       Starships: false
     }
   };
-
   render() {
     return (
       <table>
         <thead>
           <tr>
-            <td>  
+            <td>
               {titles.map((itemMap) => (
-             
                 <Button
                   key={uuidv4()}
                   itemMaps={this.state.stateButtons}
@@ -46,11 +42,7 @@ export default class App extends Component {
             </td>
           </tr>
         </thead>
-        
-        
         <AppCopy stateCategories={this.state.stateButtons} />
-        
-       
       </table>
     );
   }
