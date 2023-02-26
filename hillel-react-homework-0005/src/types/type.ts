@@ -9,4 +9,8 @@ export type ApiProps = {
     Planets: boolean;
     Starships: boolean;
   };
-};
+}
+export type TitleComponentProps = {
+  itemName: string;
+  handleClick: () => void;
+}

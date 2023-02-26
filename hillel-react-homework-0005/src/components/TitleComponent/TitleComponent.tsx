@@ -1,8 +1,11 @@
 import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import Stack from '@mui/material/Stack';
+import { FC } from 'react';
+import { TitleComponentProps } from "../../types/type"
 
-const TitleComponent = (props) => {
+
+const TitleComponent: FC<TitleComponentProps>  = ({ itemName, handleClick }) => {
   return (
     <ListItem >
       <Stack direction='row' spacing={2}>
@@ -10,9 +13,9 @@ const TitleComponent = (props) => {
           variant='contained'
           color='success'
           style={{ width: 350 }}
-          onClick={props.handleClick}
+          onClick={handleClick}
         >
-          {props.itemName}
+          {itemName}
         </Button>
       </Stack>
     </ListItem>

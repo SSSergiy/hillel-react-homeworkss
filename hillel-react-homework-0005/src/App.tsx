@@ -1,7 +1,7 @@
 import Api from './api/Api';
 import CustomButton from './components/CustomButton/CustomButton';
 import { titles } from './translations/translations';
-import { CategoryState } from './types/types';
+import { CategoryState } from './types/type';
 
 import List from '@mui/material/List';
 import { useState } from 'react';

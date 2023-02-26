@@ -1,17 +1,11 @@
-import List from '@mui/material/List';
-import { useEffect, useState } from 'react';
-import { RingLoader } from 'react-spinners';
-import { FC } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import KartisComponent from '../components/KartisComponent/KartisComponent';
-import TitleComponent from '../components/TitleComponent/TitleComponent';
-type ApiProps = {
-  stateCategories: {
-    Peoples: boolean;
-    Planets: boolean;
-    Starships: boolean;
-  };
-};
+import List from '@mui/material/List'
+import { FC, useEffect, useState } from 'react'
+import { RingLoader } from 'react-spinners'
+import { v4 as uuidv4 } from 'uuid'
+import KartisComponent from '../components/KartisComponent/KartisComponent'
+import TitleComponent from '../components/TitleComponent/TitleComponent'
+import { ApiProps } from "../types/type"
+
 const Api: FC<ApiProps> = ({ stateCategories: { Peoples, Planets, Starships } }) => {
   const [itemsState, setItemsState] = useState<{ id: string; name: string }[]>([]);
   const [personState, setPersonState] = useState({
