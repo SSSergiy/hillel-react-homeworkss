@@ -4,6 +4,7 @@ import { RingLoader } from 'react-spinners';
 import { v4 as uuidv4 } from 'uuid';
 import KartisComponent from '../components/KartisComponent/KartisComponent';
 import TitleComponent from '../components/TitleComponent/TitleComponent';
+import { css } from '@emotion/react';
 
 const Api = ({ stateCategories: { Peoples, Planets, Starships } }) => {
   const [itemsState, setItemsState] = useState([]);
@@ -57,7 +58,7 @@ const Api = ({ stateCategories: { Peoples, Planets, Starships } }) => {
   };
 
   return (
-    <div>
+    <div style={{ position: 'relative' }}>
       <div
         style={{
           display: 'flex',
@@ -79,8 +80,16 @@ const Api = ({ stateCategories: { Peoples, Planets, Starships } }) => {
         <List dense sx={{ width: '100%', maxWidth: 360 }}>
           <KartisComponent kartisProps={personState} />
         </List>
-      </div>
-      {isLoading && <RingLoader loading={isLoading} />}
+			
+			</div>
+      <RingLoader
+        size={150}
+        color={'#123abc'}
+        loading={isLoading}
+        css={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0 }}
+      />
+   
+      {/* {isLoading && <RingLoader loading={isLoading} size={900} />} */}
     </div>
   );
 };
