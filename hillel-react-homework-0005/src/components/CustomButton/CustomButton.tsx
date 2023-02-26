@@ -1,11 +1,12 @@
 import Button from '@mui/material/Button';
 import { FC } from 'react';
-interface CustomButtonProps {
-  title: string;
-  itemMaps: { [key: string]: boolean };
-  stateButtons: () => void;
-  }
-const CustomButton: FC<CustomButtonProps> = ({ title, itemMaps, stateButtons }) => {
+import { CustomButtonProps } from '../../types/type';
+
+const CustomButton: FC<CustomButtonProps> = ({
+  title,
+  itemMaps,
+  stateButtons
+}) => {
   return (
     <Button
       variant='contained'
