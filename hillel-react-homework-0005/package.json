@@ -15,8 +15,12 @@
     "@mui/icons-material": "^5.11.9",
     "@mui/material": "^5.11.10",
     "@types/uuid": "^9.0.1",
+    "i18next": "^22.4.10",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-http-backend": "^2.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-i18next": "^12.2.0",
     "react-spinners": "^0.13.8",
     "swapi-ts": "^1.0.1",
     "uuid": "^9.0.0"

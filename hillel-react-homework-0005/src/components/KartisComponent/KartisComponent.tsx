@@ -1,8 +1,8 @@
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { objPiple } from '../../imagesResurses/imgResurs';
-import { KartisComponentProps } from '../../types/type';
 
-const KartisComponent: React.FC<KartisComponentProps> = ({ kartisProps }) => {
+
+const KartisComponent= ({ kartisProps }) => {
   const {
     name,
     gender,

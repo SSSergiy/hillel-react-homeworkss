@@ -2,10 +2,10 @@ import Button from '@mui/material/Button';
 import ListItem from '@mui/material/ListItem';
 import Stack from '@mui/material/Stack';
 import { FC } from 'react';
-import { TitleComponentProps } from "../../types/type"
 
 
-const TitleComponent: FC<TitleComponentProps>  = ({ itemName, handleClick }) => {
+
+const TitleComponent = ({ itemName, handleClick }) => {
   return (
     <ListItem >
       <Stack direction='row' spacing={2}>

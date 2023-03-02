@@ -1,37 +1,58 @@
 import List from '@mui/material/List';
-import { FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RingLoader } from 'react-spinners';
 import { v4 as uuidv4 } from 'uuid';
 import KartisComponent from '../components/KartisComponent/KartisComponent';
 import TitleComponent from '../components/TitleComponent/TitleComponent';
-import { ApiProps } from '../types/type';
+import { ChangeLanguage } from '../components/ChangeLanguage/ChangeLanguage'
+// import { ApiProps } from '../types/type';
 
-const Api: FC<ApiProps> = ({
-  stateCategories: { Peoples, Planets, Starships }
-}) => {
-  const [itemsState, setItemsState] = useState<{ id: string; name: string }[]>(
-    []
-  );
+const Api = ({ stateCategories: { Peoples, Planets, Starships } }) => {
+  const [itemsState, setItemsState] = useState([]);
+
   const [personState, setPersonState] = useState({
     birth_year: '19BBY',
     eye_color: 'blue',
     gender: 'male',
-    id: '665becf8-b443-4323-b083-4b07c35fec39',
-    name: 'Luke Skywalker'
+    name: 'Luke Skywalker',
+    id: '665becf8-b443-4323-b083-4b07c35fec39'
   });
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const requestData = (): string => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const requestData = () => {
     if (Peoples) {
+      setPersonState({
+        birth_year: '19BBY',
+        eye_color: 'blue',
+        gender: 'male',
+        name: 'Luke Skywalker',
+        id: '665becf8-b443-4323-b083-4b07c35fec39'
+      });
       return 'people';
     }
     if (Planets) {
+      setPersonState({
+        ['diameter']: '10465',
+        rotation_period: '23',
+        population: '200000',
+        name: 'Tatooine',
+        id: '665becf8-b443-4323-b083-4b07c35ec393'
+      });
       return 'planets';
     }
     if (Starships) {
+      setPersonState({
+        hyperdrive_rating: '2.0',
+        length: '150',
+        starship_class: 'corvette',
+        id: '665becf8-b443-4323-b083-4b07c35ec394',
+        name: 'CR90 corvette'
+      });
       return 'starships';
     }
   };
+console.log("oienoe");
 
   useEffect(() => {
     fetchData();
@@ -70,6 +91,7 @@ const Api: FC<ApiProps> = ({
   ));
   return (
     <div style={{ position: 'relative' }}>
+     
       <div
         style={{
           display: 'flex',
