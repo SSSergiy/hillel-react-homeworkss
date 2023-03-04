@@ -21,7 +21,6 @@ const KartisComponent = ({ kartisProps, indexLanguages }) => {
 		eye_color,
 		diameter,
 		length,
-		url,
 	} = kartisProps
 
 	return (

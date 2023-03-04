@@ -72,7 +72,6 @@ const Api = ({ stateCategories }) => {
 				id: '665becf8-b443-4323-b083-4b07c35ec393',
 			}
 		}
-const linkForPeopleOnePersen = data[language].people[0]
 		function peopleState() {
 			return {
 				birth_year: data[language].people[0].birth_year,
