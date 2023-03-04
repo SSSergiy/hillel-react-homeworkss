@@ -1,21 +1,22 @@
-
-import { LanguageContext,ThemeContext } from './LanguageProvider/LanguageProvider'
+import {
+	LanguageContext,
+	ThemeContext,
+} from './LanguageProvider/LanguageProvider'
 import Api from './api/Api'
 import ChangeLanguageContextComponent from './components/ChangeLanguageContextComponent/ChangeLanguageContextComponent'
-import ThemeToggle from './components/ThemeToggle/ThemeToggle'
 import CustomButton from './components/CustomButton/CustomButton'
+import ThemeToggle from './components/ThemeToggle/ThemeToggle'
+import './components/ThemeToggle/dark-theme.css'
+import './components/ThemeToggle/light-theme.css'
 import { data } from './translations/transletor.json'
 import { CategoryState } from './types/type'
 import { AppBar, Box, Toolbar } from '@mui/material'
 import List from '@mui/material/List'
 import { useContext, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import "./components/ThemeToggle/dark-theme.css"
-import "./components/ThemeToggle/light-theme.css"
-
 
 export default function App(): JSX.Element {
-	const { language} = useContext(LanguageContext)
+	const { language } = useContext(LanguageContext)
 	const { theme } = useContext(ThemeContext)
 
 	const [stateButtons, setStateButtons] = useState<CategoryState>({
@@ -42,27 +43,30 @@ export default function App(): JSX.Element {
 		})
 		setStateButtons(newButtonsState)
 	}
-console.log(theme);
 
 	return (
 		<div className={theme}>
-		  <div >
-		{/* <div style={{ backgroundColor: `var(--background-color)`}}>
-		  <div style={{color: `var(--text-color)`}}> */}
-  		  <Box>
-    			<AppBar>
-    				<Toolbar sx={{ display: 'flex', justifyContent: 'space-around' }}>
-    					{renderButton}
-              <ChangeLanguageContextComponent />
-            </Toolbar>
-    			</AppBar>
-    			<List dense sx={{ marginTop: 15 }}>
-    				<Api stateCategories={stateButtons} />
-    			</List>
-    		</Box>
-              <ThemeToggle/>
-            <span>  This is a {theme === 'dark' ? 'dark' : 'light'} theme.</span>
-  		</div>
+			<div>
+				<Box>
+					<AppBar>
+						<Toolbar
+							className={theme}
+							sx={{ display: 'flex', justifyContent: 'space-around' }}
+						>
+							{renderButton}
+							<ChangeLanguageContextComponent />
+						</Toolbar>
+					</AppBar>
+					<List dense sx={{ marginTop: 15 }} className={theme}>
+						<Api stateCategories={stateButtons} />
+					</List>
+				</Box>
+				<ThemeToggle />
+				<span className={theme}>
+					{' '}
+					This is a {theme === 'dark' ? 'dark' : 'light'} theme.
+				</span>
+			</div>
 		</div>
 	)
 }

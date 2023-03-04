@@ -26,66 +26,60 @@ const Api = ({ stateCategories }) => {
 	const requestData = () => {
 		if (language === 'en') {
 			if (stateCategories[keys[0]]) {
-				setPersonState({
-					birth_year: data[language].people[0].birth_year,
-					eye_color: data[language].people[0].eye_color,
-					gender: data[language].people[0].gender,
-					name: data[language].people[0].name,
-					id: '665becf8-b443-4323-b083-4b07c35fec39',
-				})
+				setPersonState(peopleState())
 				return 'people'
 			}
 			if (stateCategories[keys[1]]) {
-				setPersonState({
-					['diameter']: data[language].planets[0].diameter,
-					rotation_period: data[language].planets[0].rotation_period,
-					population: data[language].planets[0].population,
-					name: data[language].planets[0].name,
-					id: '665becf8-b443-4323-b083-4b07c35ec393',
-				})
+				setPersonState(planetsState())
 				return 'planets'
 			}
 			if (stateCategories[keys[2]]) {
-				setPersonState({
-					hyperdrive_rating: data[language].starships[0].hyperdrive_rating,
-					length: data[language].starships[0].length,
-					starship_class: data[language].starships[0].starship_class,
-					name: data[language].starships[0].name,
-					id: '665becf8-b443-4323-b083-4b07c35ec394',
-				})
+				setPersonState(starshipsState())
 				return 'starships'
 			}
 		}
 		if (language === 'uk') {
 			if (stateCategories[keys[0]]) {
-				setPersonState({
-					birth_year: data[language].people[0].birth_year,
-					eye_color: data[language].people[0].eye_color,
-					gender: data[language].people[0].gender,
-					name: data[language].people[0].name,
-					id: '665becf8-b443-4323-b083-4b07c35fec39',
-				})
+				setPersonState(peopleState())
 				return 'people'
 			}
 			if (stateCategories[keys[1]]) {
-				setPersonState({
-					['diameter']: data[language].planets[0].diameter,
-					rotation_period: data[language].planets[0].rotation_period,
-					population: data[language].planets[0].population,
-					name: data[language].planets[0].name,
-					id: '665becf8-b443-4323-b083-4b07c35ec393',
-				})
+				setPersonState(planetsState())
 				return 'planets'
 			}
 			if (stateCategories[keys[2]]) {
-				setPersonState({
-					hyperdrive_rating: data[language].starships[0].hyperdrive_rating,
-					length: data[language].starships[0].length,
-					starship_class: data[language].starships[0].starship_class,
-					name: data[language].starships[0].name,
-					id: '665becf8-b443-4323-b083-4b07c35ec394',
-				})
+				setPersonState(starshipsState())
 				return 'starships'
+			}
+		}
+
+		function starshipsState() {
+			return {
+				hyperdrive_rating: data[language].starships[0].hyperdrive_rating,
+				length: data[language].starships[0].length,
+				starship_class: data[language].starships[0].starship_class,
+				name: data[language].starships[0].name,
+				id: '665becf8-b443-4323-b083-4b07c35ec394',
+			}
+		}
+
+		function planetsState() {
+			return {
+				['diameter']: data[language].planets[0].diameter,
+				rotation_period: data[language].planets[0].rotation_period,
+				population: data[language].planets[0].population,
+				name: data[language].planets[0].name,
+				id: '665becf8-b443-4323-b083-4b07c35ec393',
+			}
+		}
+
+		function peopleState() {
+			return {
+				birth_year: data[language].people[0].birth_year,
+				eye_color: data[language].people[0].eye_color,
+				gender: data[language].people[0].gender,
+				name: data[language].people[0].name,
+				id: '665becf8-b443-4323-b083-4b07c35fec39',
 			}
 		}
 	}
