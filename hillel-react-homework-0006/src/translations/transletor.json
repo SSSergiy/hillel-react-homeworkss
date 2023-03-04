@@ -7,7 +7,8 @@
 						{ "title": "Люди" },
 						{ "title": "Планети" },
 						{ "title": "Зоряні кораблі" }
-					]
+					],
+					 "title": "Змiнити Mову EN або UK" 
 				},
 				{
 					"titleCardPeople": [
@@ -225,7 +226,8 @@
 						{ "title": "People" },
 						{ "title": "Planets" },
 						{ "title": "Starthips" }
-					]
+					],
+					 "title": "Toggle Language EN or UK" 
 				},
 				{
 					"titleCardPeople": [

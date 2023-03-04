@@ -1,9 +1,20 @@
 import { createContext, useEffect, useState } from 'react'
+// import "../components/ThemeToggle/dark-theme.css"
+// import "../components/ThemeToggle/light-theme.css"
 
 export const LanguageContext = createContext()
+export const ThemeContext = createContext()
 
 export const LanguageProvider = ({ children }) => {
-	const [language, setLanguage] = useState('en')
+
+  const [language, setLanguage] = useState('en')
+
+  const [theme, setTheme] = useState('dark');
+
+  const toggleTheme = () => {
+   
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
 
 	const toggleLanguage = () => {
 		useEffect(
@@ -12,9 +23,11 @@ export const LanguageProvider = ({ children }) => {
 		)
 	}
 
-	return (
-		<LanguageContext.Provider value={{ language, toggleLanguage }}>
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+		<LanguageContext.Provider value={{ language, toggleLanguage}}>
 			{children}
-		</LanguageContext.Provider>
+      </LanguageContext.Provider>
+      </ThemeContext.Provider>
 	)
 }

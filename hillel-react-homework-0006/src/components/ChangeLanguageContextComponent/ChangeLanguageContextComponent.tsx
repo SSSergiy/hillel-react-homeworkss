@@ -1,4 +1,5 @@
 import { LanguageContext } from '../../LanguageProvider/LanguageProvider'
+import { data } from '../../translations/transletor.json'
 import { useContext } from 'react'
 
 function ChangeLanguageContextComponent() {
@@ -6,8 +7,7 @@ function ChangeLanguageContextComponent() {
 
 	return (
 		<div>
-			{/* <p>{language === 'en' ? 'Hello' : 'Привет'}</p> */}
-			<button onClick={toggleLanguage}>Toggle Language EN or UK</button>
+			<button onClick={toggleLanguage}>{data[language].decor[0].title} </button>
 		</div>
 	)
 }
