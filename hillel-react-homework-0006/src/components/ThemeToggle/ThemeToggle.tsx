@@ -6,11 +6,6 @@ import { data } from '../../translations/transletor.json'
 const ThemeToggle = () => {
   const { language } = useContext(LanguageContext)
   const { theme, toggleTheme } = useContext(ThemeContext)
-  console.log(data[language].decor[0].titleDark
-    );
-  
-    // titleLight
-
 	return (
 		<button onClick={toggleTheme}>
 			{theme === 'dark' ? data[language].decor[0].titleDark : data[language].decor[0].titleLight}

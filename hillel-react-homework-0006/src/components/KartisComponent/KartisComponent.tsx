@@ -23,12 +23,14 @@ const KartisComponent = ({ kartisProps, indexLanguages }) => {
 		length,
 		url,
 	} = kartisProps
+	console.log(data[language][gender?"people":population?"planets":starship_class?"starships":nuul][indexLanguages].name);
+	
 
 	return (
 		<Card>
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="div">
-					{url ? data[language][url.split('/')[4]][indexLanguages].name : name}
+					{ data[language][gender?"people":population?"planets":starship_class?"starships":nuul][indexLanguages].name}
 				</Typography>
 				<Typography>
 					{(gender
