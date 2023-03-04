@@ -55,17 +55,13 @@ export default function App(): JSX.Element {
 						>
 							{renderButton}
 							<ChangeLanguageContextComponent />
+							<ThemeToggle />
 						</Toolbar>
 					</AppBar>
 					<List dense sx={{ marginTop: 15 }} className={theme}>
 						<Api stateCategories={stateButtons} />
 					</List>
 				</Box>
-				<ThemeToggle />
-				<span className={theme}>
-					{' '}
-					This is a {theme === 'dark' ? 'dark' : 'light'} theme.
-				</span>
 			</div>
 		</div>
 	)

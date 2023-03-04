@@ -8,7 +8,9 @@
 						{ "title": "Планети" },
 						{ "title": "Зоряні кораблі" }
 					],
-					 "title": "Змiнити Mову EN або UK" 
+					 "title": "Змiнити Mову EN або UK" ,
+					 "titleLight": "Змiнити на Свiтлу Тему",
+					 "titleDark":"Змiнити на Темну Тему"
 				},
 				{
 					"titleCardPeople": [
@@ -227,7 +229,9 @@
 						{ "title": "Planets" },
 						{ "title": "Starthips" }
 					],
-					 "title": "Toggle Language EN or UK" 
+					 "title": "Toggle Language EN or UK" ,
+					 "titleLight": "Switch to Light Theme",
+					 "titleDark":"Switch to Dark Theme"
 				},
 				{
 					"titleCardPeople": [

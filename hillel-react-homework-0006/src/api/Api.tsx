@@ -1,14 +1,14 @@
-import List from '@mui/material/List'
-import { useContext, useEffect, useState } from 'react'
-import { RingLoader } from 'react-spinners'
-import { v4 as uuidv4 } from 'uuid'
 import { LanguageContext } from '../LanguageProvider/LanguageProvider'
 import KartisComponent from '../components/KartisComponent/KartisComponent'
 import TitleComponent from '../components/TitleComponent/TitleComponent'
 import { data } from '../translations/transletor.json'
+import List from '@mui/material/List'
+import { useContext, useEffect, useState } from 'react'
+import { RingLoader } from 'react-spinners'
+import { v4 as uuidv4 } from 'uuid'
 
 const Api = ({ stateCategories }) => {
-	const { language} = useContext(LanguageContext)
+	const { language } = useContext(LanguageContext)
 
 	const [itemsState, setItemsState] = useState([])
 	let keys = Object.keys(stateCategories)
@@ -72,7 +72,7 @@ const Api = ({ stateCategories }) => {
 				id: '665becf8-b443-4323-b083-4b07c35ec393',
 			}
 		}
-
+const linkForPeopleOnePersen = data[language].people[0]
 		function peopleState() {
 			return {
 				birth_year: data[language].people[0].birth_year,
@@ -110,10 +110,10 @@ const Api = ({ stateCategories }) => {
 			setIsLoading(false)
 		}, 2000)
 	}
-const [indexLanguages,setIndexLanguages]=useState(0)
-	const clickHandle = (id: string,index) => {
-    const filteredData = itemsState.filter((item) => item.id === id)
-    setIndexLanguages(index)
+	const [indexLanguages, setIndexLanguages] = useState(0)
+	const clickHandle = (id: string, index) => {
+		const filteredData = itemsState.filter((item) => item.id === id)
+		setIndexLanguages(index)
 		if (filteredData.length > 0) {
 			setPersonState(filteredData[0])
 		}
@@ -123,7 +123,7 @@ const [indexLanguages,setIndexLanguages]=useState(0)
 		<TitleComponent
 			key={id}
 			itemsState={data[language][stringCategoris][index]}
-			handleClick={() => clickHandle(id,index)}
+			handleClick={() => clickHandle(id, index)}
 		/>
 	))
 	return (
@@ -141,7 +141,10 @@ const [indexLanguages,setIndexLanguages]=useState(0)
 					{renderTitleComponent}
 				</List>
 				<List dense sx={{ width: '100%', maxWidth: 360 }}>
-					<KartisComponent kartisProps={personState}indexLanguages={indexLanguages} />
+					<KartisComponent
+						kartisProps={personState}
+						indexLanguages={indexLanguages}
+					/>
 				</List>
 			</div>
 			<RingLoader size={150} color={'#123abc'} loading={isLoading} />
