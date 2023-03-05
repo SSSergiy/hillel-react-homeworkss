@@ -9,15 +9,12 @@ const KartisComponent = ({ kartisProps, indexLanguages }) => {
 
 	const {
 		name,
-
 		gender,
 		population,
 		starship_class,
-
 		birth_year,
 		rotation_period,
 		hyperdrive_rating,
-
 		eye_color,
 		diameter,
 		length,

@@ -1,6 +1,4 @@
-import Button from '@mui/material/Button'
-import ListItem from '@mui/material/ListItem'
-import Stack from '@mui/material/Stack'
+import { Button, ListItem, Stack } from '@mui/material'
 
 const TitleComponent = ({ handleClick, itemsState }) => {
 	return (
