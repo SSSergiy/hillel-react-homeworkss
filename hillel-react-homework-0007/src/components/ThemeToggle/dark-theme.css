@@ -3,10 +3,11 @@
   --text-color: #f5f5f5;
 } */
 .dark {
-  background-color: #1f1f1f;
-  color:  #f5f5f5;
+  background-color: #411d1d3f;
+  color:  #fcfcfc;
+}
 .light {
-  background-color: #f5f5f5;
+  background-color: #f5f5f5b5;
   color: #1f1f1f;
 }
 

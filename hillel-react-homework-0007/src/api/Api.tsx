@@ -5,6 +5,7 @@ import { data } from '../translations/transletor.json'
 import List from '@mui/material/List'
 import { useContext, useEffect, useState } from 'react'
 import { RingLoader } from 'react-spinners'
+import { CSSTransition } from 'react-transition-group'
 import { v4 as uuidv4 } from 'uuid'
 
 const Api = ({ stateCategories }) => {
@@ -140,10 +141,11 @@ const Api = ({ stateCategories }) => {
 					{renderTitleComponent}
 				</List>
 				<List dense sx={{ width: '100%', maxWidth: 360 }}>
-					<KartisComponent
-						kartisProps={personState}
-						indexLanguages={indexLanguages}
-					/>
+				
+						<KartisComponent
+							kartisProps={personState}
+							indexLanguages={indexLanguages}
+						/>
 				</List>
 			</div>
 			<RingLoader size={150} color={'#123abc'} loading={isLoading} />

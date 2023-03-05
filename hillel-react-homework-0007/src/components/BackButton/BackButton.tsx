@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { Button,ButtonGroup } from '@mui/material'
+import { Button, ButtonGroup } from '@mui/material'
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 function BackButton() {
   let navigate = useNavigate();
@@ -7,9 +8,11 @@ function BackButton() {
 
 
   return (
-    <ButtonGroup variant="contained" className="buttongrup">
-      <Button className="button-LOG IN" onClick={() => navigate(-1)}>Bagtsgstgstgck</Button>
-      </ButtonGroup>
+   
+      <Button variant="contained"
+        color="success"
+        onClick={() => navigate(-1)} startIcon={<ArrowBackIosIcon />} >BackButton</Button>
+        // startIcon={<ArrowBackIosIcon />}
     // <button onClick={handleClick}>Bagtsgstgstgck</button>
   );
 }
