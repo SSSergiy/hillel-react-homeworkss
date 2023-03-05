@@ -1,0 +1,64 @@
+.homePage {
+	background-image: url(../../public/HomePage/Bacgraund.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	width: 100vw;
+}
+
+.apbar {
+	background-color: transparent;
+	box-shadow: none;
+	width: 100%;
+}
+
+.toolbar {
+	display: flex;
+	justify-content: center;
+}
+
+.buttongrup {
+	background-color: #ff6200;
+	border: none;
+	border-radius: 2rem;
+	overflow: hidden;
+	box-shadow: 0 0 10px rgba(255, 98, 0, 0.8);
+}
+
+.button-LOG {
+	background-color: transparent;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 1rem 2rem;
+	font-size: 1.5rem;
+	transition: color 0.2s ease-in-out;
+}
+
+.button-LOG:hover {
+	color: #ff6200;
+}
+
+.button-LOG:focus {
+	outline: none;
+}
+
+.button-LOG-AUT {
+	background-color: #fff;
+	color: #ff6200;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 1rem 2rem;
+	font-size: 1.5rem;
+	transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.button-LOG-AUT:hover {
+	background-color: #ff6200;
+	color: #fff;
+}
+
+.button-LOG-AUT:focus {
+	outline: none;
+}
