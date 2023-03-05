@@ -1,11 +1,11 @@
-import './_HomePage.scss'
+import { Masonry } from '@mui/lab'
 import { Button, ButtonGroup, Toolbar } from '@mui/material'
+import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
+import { styled } from '@mui/material/styles'
 import { Link } from 'react-router-dom'
-import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import {Masonry} from '@mui/lab';
-import { styled } from '@mui/material/styles';
-import { imgResursMasonry }from "../../imagesResurses/imgResursMasonry"
+import { imgResursMasonry } from "../../imagesResurses/imgResursMasonry"
+import './_HomePage.scss'
 
 function HomePage() {
 	const Label = styled(Paper)(({ theme }) => ({
@@ -28,6 +28,15 @@ function HomePage() {
 					</Link>
 				</ButtonGroup>
 			</Toolbar>
+			<section>
+				<h1>star Wars</h1>
+				<p>Welcome to our home page where you can dive into the exciting world of Star Wars! Our app provides information about the people, planets and starships that are found in this famous cosmic sphere.</p>
+
+<p>All about favorite characters such as Luke Skywalker, Han Solo and Princess Leia are typed in, as well as new characters that have appeared in recent films. Explore planets like Tatooine, Hoth and Coruscant and learn more about them than ever before.</p>
+
+<p>If you are passionate about starships then you will not be disappointed! We received detailed information about famous ships such as the Millennium Falcon, Darth Vader Interceptor and Star Destroyer.</p>
+
+<p>Our app is the complete reference for any Star Wars fan. Don't wait and start your exciting journey through the galaxy right now!</p></section>
 			<Box sx={{ width: "100%", minHeight: 829 ,margin:"0 auto"}}>
       <Masonry columns={3} spacing={2}>
         {imgResursMasonry.map((item, index) => (
