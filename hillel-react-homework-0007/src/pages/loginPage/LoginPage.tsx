@@ -23,7 +23,7 @@ function LoginPage() {
 			/>
 			<ButtonGroup variant="contained" className="buttongrup">
 				{isChecked ? (
-					<Link to={'/app-page'}>
+					<Link to={'/login-page/app-page'}>
 						<Button color="success" className="button-LOG IN">
 							LOG IN
 						</Button>
