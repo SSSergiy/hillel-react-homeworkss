@@ -39,3 +39,9 @@ h1 {
   background-color: #f00;
   color: #fff;
 }
+.box {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--accent);
+}
