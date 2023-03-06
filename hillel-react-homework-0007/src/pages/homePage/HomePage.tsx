@@ -31,7 +31,7 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
     clamp: false
   });
 
-  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+  const x = useTransform(baseX, (v) => `${wrap(10, -45, v)}%`);
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((t, delta) => {
@@ -96,6 +96,8 @@ function Card({ image }) {
 function HomePage() {
 	return (
 		<div className="homePage">
+      <ParallaxText baseVelocity={-5}>Star Wars</ParallaxText>
+      <ParallaxText baseVelocity={5}>Star Wars</ParallaxText>
 			<Toolbar className="toolbar">
 				<Link to={'/login-page'}>
 					<motion.div
@@ -112,8 +114,6 @@ function HomePage() {
 					</motion.div>
 				</Link>
 			</Toolbar>
-      <ParallaxText baseVelocity={-5}>Star Wars</ParallaxText>
-      <ParallaxText baseVelocity={5}>Star Wars</ParallaxText>
    
 				<ul>
 					<li>
