@@ -52,7 +52,7 @@ export default function App(): JSX.Element {
 				<ThemeToggle />
 				<BackButton />
 			</Toolbar>
-			<List dense sx={{ marginTop: 15 }} className={theme}>
+			<List dense className={theme}>
 				<Api stateCategories={stateButtons} />
 			</List>
 		</div>
