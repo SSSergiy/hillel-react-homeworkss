@@ -1,0 +1,19 @@
+/* 
+.dark {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.light {
+  background-color: var(--background-color);
+  color: var(--text-color);
+} */
+.css-n310wk-MuiList-root {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 0px;
+}
