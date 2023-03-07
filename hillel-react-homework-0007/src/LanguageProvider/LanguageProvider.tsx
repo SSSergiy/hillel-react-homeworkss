@@ -1,6 +1,5 @@
 import { createContext, useState } from 'react'
 
-
 export const LanguageContext = createContext()
 export const ThemeContext = createContext()
 export const LanguageProvider = ({ children }) => {
@@ -13,10 +12,8 @@ export const LanguageProvider = ({ children }) => {
 	}
 
 	const toggleLanguage = () => {
-	
-			setLanguage((prevLanguage) => (prevLanguage === 'en' ? 'uk' : 'en')),
+		setLanguage((prevLanguage) => (prevLanguage === 'en' ? 'uk' : 'en')),
 			[language]
-		
 	}
 
 	return (

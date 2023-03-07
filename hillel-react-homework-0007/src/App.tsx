@@ -14,6 +14,7 @@ import { CategoryState } from './types/type'
 import { List, Toolbar } from '@mui/material'
 import { useContext, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function App(): JSX.Element {
 	const { language } = useContext(LanguageContext)
@@ -52,9 +53,19 @@ export default function App(): JSX.Element {
 				<ThemeToggle />
 				<BackButton />
 			</Toolbar>
+			<AnimatePresence mode="wait">
+          <motion.div
+            key={uuidv4()}
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
 			<List dense className={theme}>
 				<Api stateCategories={stateButtons} />
-			</List>
+				</List>
+				</motion.div>
+        </AnimatePresence>
 		</div>
 	)
 }
