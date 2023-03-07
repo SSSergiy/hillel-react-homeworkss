@@ -3,7 +3,7 @@ import {
 	ThemeContext,
 } from '../../LanguageProvider/LanguageProvider'
 import { data } from '../../translations/transletor.json'
-import Switch from '@mui/material/Switch'
+import { Switch } from '@mui/material'
 import { useContext } from 'react'
 
 const ThemeToggle = () => {

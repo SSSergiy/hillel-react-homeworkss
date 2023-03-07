@@ -15,7 +15,6 @@ export const LanguageProvider = ({ children }) => {
 		setLanguage((prevLanguage) => (prevLanguage === 'en' ? 'uk' : 'en')),
 			[language]
 	}
-
 	return (
 		<ThemeContext.Provider value={{ theme, toggleTheme }}>
 			<LanguageContext.Provider value={{ language, toggleLanguage }}>
