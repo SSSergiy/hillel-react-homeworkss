@@ -4,6 +4,7 @@ import PublicIcon from '@mui/icons-material/Public'
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch'
 import Button from '@mui/material/Button'
 import { FC } from 'react'
+import { motion } from "framer-motion";
 
 const CustomButton: FC<CustomButtonProps> = ({
 	title,
@@ -23,6 +24,7 @@ const CustomButton: FC<CustomButtonProps> = ({
 	}
 
 	return (
+		<motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} >
 		<Button
 			variant="contained"
 			color="success"
@@ -31,7 +33,8 @@ const CustomButton: FC<CustomButtonProps> = ({
 			startIcon={iconElementFunc()}
 		>
 			{title}
-		</Button>
+			</Button>
+			</motion.div>
 	)
 }
 

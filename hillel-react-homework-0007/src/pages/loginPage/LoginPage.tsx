@@ -36,6 +36,7 @@ function LoginPage() {
 				onChange={handleCheckboxChange}
 				color="secondary"
 			/>
+			 <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} >
 			<ButtonGroup variant="contained" className="buttongrup">
 				{isChecked ? (
 					<Link to={'/login-page/app-page'}>
@@ -48,7 +49,8 @@ function LoginPage() {
 						LOG IN
 					</Button>
 				)}
-			</ButtonGroup>
+				</ButtonGroup>
+				</motion.div>
 		</div>
 	)
 }

@@ -3,6 +3,7 @@ import { objPiple } from '../../imagesResurses/imgResurs'
 import { data } from '../../translations/transletor.json'
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
 import { useContext } from 'react'
+import { motion } from "framer-motion";
 
 const KartisComponent = ({ kartisProps, indexLanguages }) => {
 	const { language } = useContext(LanguageContext)
@@ -21,6 +22,7 @@ const KartisComponent = ({ kartisProps, indexLanguages }) => {
 	} = kartisProps
 
 	return (
+		<motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
 		<Card>
 			<CardContent>
 				<Typography gutterBottom variant="h5" component="div">
@@ -75,7 +77,8 @@ const KartisComponent = ({ kartisProps, indexLanguages }) => {
 				</Typography>
 			</CardContent>
 			<CardMedia component="img" image={objPiple[name]} alt={name} />
-		</Card>
+			</Card>
+			</motion.div>
 	)
 }
 

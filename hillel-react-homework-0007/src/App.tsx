@@ -12,9 +12,9 @@ import './components/ThemeToggle/light-theme.css'
 import { data } from './translations/transletor.json'
 import { CategoryState } from './types/type'
 import { List, Toolbar } from '@mui/material'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useContext, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import { motion, AnimatePresence } from "framer-motion";
 
 export default function App(): JSX.Element {
 	const { language } = useContext(LanguageContext)
@@ -42,6 +42,13 @@ export default function App(): JSX.Element {
 		})
 		setStateButtons(newButtonsState)
 	}
+	console.log(
+		'' +
+			Object.values(stateButtons)[0] +
+			Object.values(stateButtons)[1] +
+			Object.values(stateButtons)[2]
+	)
+
 	return (
 		<div className={theme && ' homePage'}>
 			<Toolbar
@@ -54,18 +61,23 @@ export default function App(): JSX.Element {
 				<BackButton />
 			</Toolbar>
 			<AnimatePresence mode="wait">
-          <motion.div
-            key={uuidv4()}
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-			<List dense className={theme}>
-				<Api stateCategories={stateButtons} />
-				</List>
+				<motion.div
+					key={
+						'' +
+						Object.values(stateButtons)[0] +
+						Object.values(stateButtons)[1] +
+						Object.values(stateButtons)[2]
+					}
+					initial={{ y: 10, opacity: 0 }}
+					animate={{ y: 0, opacity: 1 }}
+					exit={{ y: -10, opacity: 0 }}
+					transition={{ duration: 0.2 }}
+				>
+					<List dense className={theme}>
+						<Api stateCategories={stateButtons} />
+					</List>
 				</motion.div>
-        </AnimatePresence>
+			</AnimatePresence>
 		</div>
 	)
 }

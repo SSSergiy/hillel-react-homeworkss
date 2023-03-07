@@ -32,7 +32,7 @@
 body {
 	--orange: #fd7702;
 	--yellow: #ffbb00;
-
+	--red: #fe0222;
 	--accent: var(--orange);
 }
 
@@ -118,4 +118,14 @@ body {
 .parallax span {
   display: block;
   margin-right: 30px;
+}
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
+	z-index: 1;
 }
