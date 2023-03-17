@@ -1,5 +1,4 @@
-import { createStore } from "redux"
-import { todoReducer } from "../reducers/todoReducer"
-import { composeWithDevTools } from 'redux-devtools-extension'
-
-export const store = createStore(todoReducer,composeWithDevTools())
+import { createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { todoReducer } from '../reducers/todoReducer';
+export const store = createStore(todoReducer, composeWithDevTools());

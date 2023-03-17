@@ -24,7 +24,7 @@ export const CaseListItem = ({ stateItem }) => {
   };
 
   return (
-    <List onClick={changeTodo}>
+    <List onClick={changeTodo} className={stateItem.done?'list-item':""}>
       <ListItem disablePadding>
         <ListItemButton>
           <ListItemIcon color='secondary'>
