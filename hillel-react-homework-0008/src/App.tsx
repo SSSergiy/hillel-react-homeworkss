@@ -1,5 +1,46 @@
-function App() {
-  return <div className='App'>gtgtg</div>;
-}
+import { Button, TextField } from '@mui/material';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { CaseListItem } from './components/caseListItem/caseListItem';
+import { CREATE_TODO } from './store/constants';
 
-export default App;
+export const App = () => {
+  const stateTodoList = useSelector((state) => state.todoList);
+
+  const dispatch = useDispatch();
+  const [getValue, setValue] = useState('');
+
+  const todoItem = {
+    title: getValue,
+    id: Date.now(),
+    done: true
+  };
+
+  const creatorTodo = (value = {}) => {
+    dispatch({ type: CREATE_TODO, payload: value });
+    setValue('');
+  };
+
+  return (
+    <>
+      {' '}
+      <div className='center'>
+        <div className='App'>
+          <TextField
+            id='outlined-basic'
+            label='describe the task'
+            variant='outlined'
+            value={getValue}
+            onChange={(e) => setValue(e.target.value)}
+          />
+          <Button onClick={() => creatorTodo(todoItem)} variant='contained'>
+            Add Task
+          </Button>
+        </div>
+      </div>
+      {stateTodoList.map((item) => (
+        <CaseListItem key={item.id} stateItem={item} />
+      ))}
+    </>
+  );
+};
