@@ -1,4 +1,4 @@
-import { CHANGE_TODO, CREATE_TODO } from '../store/constants';
+import { CHANGE_TODO, CREATE_TODO } from '../constants/constants';
 
 const initialState = {
   todoList: [

@@ -3,7 +3,7 @@ import { Button, TextField } from '@mui/material';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CaseListItem } from './components/caseListItem/caseListItem';
-import { CREATE_TODO } from './store/constants';
+import { CREATE_TODO } from './constants/constants';
 
 export function App() {
   const stateTodoList = useSelector((state) => state.todoList);

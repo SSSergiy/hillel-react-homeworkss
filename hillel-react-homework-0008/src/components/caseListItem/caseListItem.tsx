@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
 
-import { CHANGE_TODO } from '../../store/constants';
+import { CHANGE_TODO } from '../../constants/constants';
 
 export function CaseListItem({ stateItem }) {
   const dispatch = useDispatch();
