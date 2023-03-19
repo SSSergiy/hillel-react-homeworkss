@@ -1,9 +1,22 @@
 {
+  // "$schema": "https://json.schemastore.org/tsconfig",
+  // "display": "Vite React",
   "compilerOptions": {
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "noImplicitAny": true,
+    "exactOptionalPropertyTypes": true,
+    "alwaysStrict": false,
+    // "alwaysStrict": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "allowJs": true,
+    "checkJs": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -14,8 +27,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "baseUrl": "./src",
+    "jsx": "react-jsx",
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true
+
+    // "rootDir": "./src",
+    // "outDir": "./build"
   },
-  "include": ["src"],
+  "include": [
+    ".eslintrc.cjs",
+    "src"
+],
+  // "include": ["src/**/*"],
+
   "references": [{ "path": "./tsconfig.node.json" }]
 }
