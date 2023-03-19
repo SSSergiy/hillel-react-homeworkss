@@ -1,10 +1,13 @@
-import { Button } from '@mui/material';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { Button } from '@mui/material';
 
-export const CaseCreatorButton = () => {
+export function CaseCreatorButton() {
   return (
     <div>
-      <Button variant="contained" endIcon={<AddCircleIcon/>}> Add Task</Button>
+      <Button variant="contained" endIcon={<AddCircleIcon />}>
+        {' '}
+        Add Task
+      </Button>
     </div>
   );
-};
+}

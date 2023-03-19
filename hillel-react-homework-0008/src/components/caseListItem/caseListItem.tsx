@@ -5,33 +5,34 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText
+  ListItemText,
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
+
 import { CHANGE_TODO } from '../../store/constants';
 
-export const CaseListItem = ({ stateItem }) => {
+export function CaseListItem({ stateItem }) {
   const dispatch = useDispatch();
   const changeTodo = () => {
     dispatch({
       type: CHANGE_TODO,
-      payload: 
-        {id:stateItem.id}
-      
+      payload: { id: stateItem.id },
     });
-
-  
   };
 
   return (
-    <List onClick={changeTodo} className={stateItem.done?'list-item':""}>
+    <List
+      onClick={changeTodo}
+      className={stateItem.done ? 'list-item' : ''}
+      draggable="true"
+    >
       <ListItem disablePadding>
         <ListItemButton>
-          <ListItemIcon color='secondary'>
+          <ListItemIcon color="secondary">
             {stateItem.done ? (
-              <CheckCircleOutlineIcon className='secondary' />
+              <CheckCircleOutlineIcon className="secondary" />
             ) : (
-              <HighlightOffIcon className='secondary-color' />
+              <HighlightOffIcon className="secondary-color" />
             )}
           </ListItemIcon>
           <ListItemText primary={stateItem.title} />
@@ -39,4 +40,4 @@ export const CaseListItem = ({ stateItem }) => {
       </ListItem>
     </List>
   );
-};
+}

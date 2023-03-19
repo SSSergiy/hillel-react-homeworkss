@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CaseListItem } from './components/caseListItem/caseListItem';
 import { CREATE_TODO } from './store/constants';
 
-export const App = () => {
+export function App() {
   const stateTodoList = useSelector((state) => state.todoList);
 
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export const App = () => {
   const todoItem = {
     title: getValue,
     id: Date.now(),
-    done: true
+    done: true,
   };
 
   const creatorTodo = (value = {}) => {
@@ -25,19 +25,19 @@ export const App = () => {
   return (
     <>
       {' '}
-      <div className='center'>
-        <div className='App'>
+      <div className="center">
+        <div className="App">
           <TextField
-            id='outlined-basic'
-            label='describe the task'
-            variant='outlined'
+            id="outlined-basic"
+            label="describe the task"
+            variant="outlined"
             value={getValue}
             onChange={(e) => setValue(e.target.value)}
           />
           <Button
-            size='large'
+            size="large"
             onClick={() => creatorTodo(todoItem)}
-            variant='contained'
+            variant="contained"
             endIcon={<AddCircleIcon />}
           >
             Add Task
@@ -49,4 +49,4 @@ export const App = () => {
       ))}
     </>
   );
-};
+}

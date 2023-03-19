@@ -5,19 +5,19 @@ const initialState = {
     {
       title: 'Smth very important',
       id: 1,
-      done: false
+      done: false,
     },
     {
       title: 'Another very important thing',
       id: 2,
-      done: false
+      done: false,
     },
     {
       title: 'Ordinary thing',
       id: 3,
-      done: true
-    }
-  ]
+      done: true,
+    },
+  ],
 };
 
 export const todoReducer = (state = initialState, action) => {
@@ -25,7 +25,7 @@ export const todoReducer = (state = initialState, action) => {
     case CREATE_TODO:
       return {
         ...state,
-        todoList: [...state.todoList, action.payload]
+        todoList: [...state.todoList, action.payload],
       };
     case CHANGE_TODO:
       return {
@@ -34,11 +34,11 @@ export const todoReducer = (state = initialState, action) => {
           if (item.id === action.payload.id) {
             return {
               ...item,
-              done: !item.done
+              done: !item.done,
             };
           }
           return item;
-        })
+        }),
       };
     default:
       return state;
