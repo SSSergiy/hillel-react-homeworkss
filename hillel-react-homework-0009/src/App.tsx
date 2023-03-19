@@ -1,12 +1,9 @@
+import Users from './components/UsersComponent';
 
-
-function App() {
-
+export default function App() {
   return (
     <div className="App">
-      vtgmtgm
+      <Users />
     </div>
   );
 }
-
-export default App;
