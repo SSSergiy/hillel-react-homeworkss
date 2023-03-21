@@ -20,6 +20,12 @@ export default function users(state = initialState, action) {
         loading: false,
         users: action.users,
       };
+    
+      case type.LOAD_MORE_USERS_REQUESTED:
+      return {
+        ...state,
+        users: [...state.users, ...action.users],
+      };
 
     case type.GET_USERS_FAILED:
       return {
