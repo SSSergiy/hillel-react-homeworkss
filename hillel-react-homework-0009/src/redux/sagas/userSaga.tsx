@@ -51,10 +51,22 @@ function* loadMoreUsers() {
     console.log(e);
   }
 }
+// function* watchLoadMore() {
+//   yield throttle(5000, 'scroll', function* () {
+//     const windowHeight = window.innerHeight;
+//     const documentHeight = document.body.scrollHeight;
+//     const scrolled = window.scrollY;
+
+//     if (windowHeight + scrolled >= documentHeight) {
+//       yield call(fetchUsers);
+//     }
+//   });
+// }
 
 function* userSaga() {
   yield takeLatest(GET_USERS_REQUESTED, fetchUsers);
   yield throttleSaga(5000, LOAD_MORE_USERS_REQUESTED, loadMoreUsers);
+  // yield watchLoadMore();
 }
 
 export default userSaga;
