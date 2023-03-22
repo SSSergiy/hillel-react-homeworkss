@@ -1,4 +1,4 @@
-import {Users} from './components/UsersComponent';
+import Users from './components/UsersComponent';
 
 export default function App() {
   return (

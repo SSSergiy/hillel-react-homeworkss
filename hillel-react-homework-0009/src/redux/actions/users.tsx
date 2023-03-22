@@ -26,8 +26,3 @@ export const loadMoreUsers = (page) => {
 };
 
 
-// export const loadMoreUsers = () => {
-//   return {
-//     type: type.LOAD_MORE_USERS_REQUESTED,
-//   };
-// };

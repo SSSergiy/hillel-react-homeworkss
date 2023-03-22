@@ -4,6 +4,7 @@ const initialState = {
   users: [],
   loading: false,
   error: null,
+  currentPage: 1,
 };
 
 export default function users(state = initialState, action) {
@@ -24,7 +25,8 @@ export default function users(state = initialState, action) {
       case type.LOAD_MORE_USERS_REQUESTED:
       return {
         ...state,
-        users: [...state.users, ...action.users],
+        users: [...state.users, ...action.payload.users],
+        currentPage: action.payload.currentPage,
       };
 
     case type.GET_USERS_FAILED:
