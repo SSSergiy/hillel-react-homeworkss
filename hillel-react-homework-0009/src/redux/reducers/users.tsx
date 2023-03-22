@@ -1,42 +1,17 @@
-import * as type from '../types';
-
-const initialState = {
+const defaultState = {
   users: [],
-  loading: false,
-  error: null,
-  currentPage: 1,
 };
 
-export default function users(state = initialState, action) {
+export const SET_USERS = 'SET_USERS';
+export const FETCH_USERS = 'FETCH_USERS';
+
+export default function userReducer(state = defaultState, action) {
   switch (action.type) {
-    case type.GET_USERS_REQUESTED:
-      return {
-        ...state,
-        loading: true,
-      };
-
-    case type.GET_USERS_SUCCESS:
-      return {
-        ...state,
-        loading: false,
-        users: action.users,
-      };
-    
-      case type.LOAD_MORE_USERS_REQUESTED:
-      return {
-        ...state,
-        users: [...state.users, ...action.payload.users],
-        currentPage: action.payload.currentPage,
-      };
-
-    case type.GET_USERS_FAILED:
-      return {
-        ...state,
-        loading: false,
-        error: action.message,
-      };
-
-    default:
-      return state;
+    case SET_USERS:
+      return { ...state, users: action.payload };
   }
+  return state;
 }
+
+export const setUsers = (payload) => ({ type: SET_USERS, payload });
+export const fetchUsers = () => ({ type: FETCH_USERS });
