@@ -1,24 +1,34 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers } from '../redux/reducers/users';
+
+// import { fetchUsers } from '../redux/reducers/users';
 import Card from './CardComponent';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers } from '../redux/actions/actions';
+
 function Users() {
-  const users = useSelector((state) => state.userReducer.users);
+
   const dispatch = useDispatch();
+  const { users, limit, skip, isLoading } = useSelector((state) => state.userReducer
+  );
+  console.log(users);
+  
+  
 
   useEffect(() => {
-    dispatch(fetchUsers());
-  }, []);
+    dispatch(fetchUsers(limit, skip));
+  }, [dispatch, limit, skip]);
+  
 
-  const handleScroll = (event) => {
-    const { scrollTop, clientHeight, scrollHeight } = event.target;
-    if (Math.ceil(scrollTop + clientHeight) === Math.ceil(scrollHeight)) {
-      dispatch(fetchUsers());
+  const handleScroll = (e) => {
+    const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
+    if (Math.ceil(scrollTop + clientHeight) === Math.ceil(scrollHeight))  {
+    // if (scrollTop + clientHeight >= scrollHeight && !isLoading) {
+    dispatch(fetchUsers(limit, skip + limit));
     }
-  };
-
-  return (
+    };
+    
+    return (
     <div
       onScroll={handleScroll}
       style={{ overflow: 'scroll', height: '300px' }}
@@ -26,7 +36,22 @@ function Users() {
       {users.map((user) => (
         <Card user={user} key={user.id} />
       ))}
+      {isLoading && <p>Loading...</p>}
     </div>
   );
 }
 export default Users;
+
+      // const users = useSelector((state) => state.userReducer.users);
+      // const dispatch = useDispatch();
+    
+      // useEffect(() => {
+      //   dispatch(fetchUsers());
+      // }, []);
+    
+      // const handleScroll = (event) => {
+      //   const { scrollTop, clientHeight, scrollHeight } = event.target;
+      //   if (Math.ceil(scrollTop + clientHeight) === Math.ceil(scrollHeight)) {
+      //     dispatch(fetchUsers());
+      //   }
+      // };
