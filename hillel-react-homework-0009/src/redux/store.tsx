@@ -23,15 +23,3 @@ const store = createStore(rootReducer, enhancer);
 
 sagaMiddleware.run(rootSaga);
 export default store;
-// const enhancer = compose(
-//   applyMiddleware(sagaMiddleware),
-//   composeWithDevTools()
-// );
-
-// const rootReducer = combineReducers({
-//   userReducer,
-// });
-// const store = createStore(rootReducer, enhancer);
-// sagaMiddleware.run(rootSaga);
-
-// export default store;
