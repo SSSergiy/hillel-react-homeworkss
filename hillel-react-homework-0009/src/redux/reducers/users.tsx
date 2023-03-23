@@ -13,14 +13,14 @@ const usersReducer = (state = initialState, action) => {
     case FETCH_USERS:
       return {
         ...state,
-        limit: state.limit ,
+        limit: action.payload.limit ,
         skip: action.payload.skip,
         isLoading: true,
       };
     case FETCH_USERS_SUCCESS:
       return {
         ...state,
-        users: [...state.users, ...action.payload.users],
+        users: [ ...action.payload.users],
         
         isLoading: false,
       };

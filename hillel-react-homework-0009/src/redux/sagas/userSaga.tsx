@@ -10,11 +10,9 @@ const fetchUsersFromApi = (limit, skip) =>
 function* fetchUserWorker(action) {
   const { limit, skip } = action.payload;
 
-  const data = yield call(fetchUsersFromApi, limit, skip);
+  const data = yield call(fetchUsersFromApi, limit, skip );
   const json = yield call(() => new Promise((res) => res(data.json())));
   yield put(setUsers(json));
-  console.log("SAGA---",json);
-  // console.log(data);
 }
 
 export function* userWatcher() {
