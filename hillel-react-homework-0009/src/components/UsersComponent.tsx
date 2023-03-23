@@ -7,28 +7,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from '../redux/actions/actions';
 
 function Users() {
-
   const dispatch = useDispatch();
-  const { users, limit, skip, isLoading } = useSelector((state) => state.userReducer
+  const { users, limit, skip, isLoading } = useSelector(
+    (state) => state.userReducer
   );
-  console.log(users);
-  
-  
+  // console.log(users);
 
   useEffect(() => {
     dispatch(fetchUsers(limit, skip));
   }, [dispatch, limit, skip]);
-  
 
   const handleScroll = (e) => {
     const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
-    if (Math.ceil(scrollTop + clientHeight) === Math.ceil(scrollHeight))  {
-    // if (scrollTop + clientHeight >= scrollHeight && !isLoading) {
-    dispatch(fetchUsers(limit, skip + limit));
+    if (Math.ceil(scrollTop + clientHeight) === Math.ceil(scrollHeight)) {
+      dispatch(fetchUsers(limit+3, skip));
     }
-    };
-    
-    return (
+  };
+
+  return (
     <div
       onScroll={handleScroll}
       style={{ overflow: 'scroll', height: '300px' }}
@@ -42,16 +38,16 @@ function Users() {
 }
 export default Users;
 
-      // const users = useSelector((state) => state.userReducer.users);
-      // const dispatch = useDispatch();
-    
-      // useEffect(() => {
-      //   dispatch(fetchUsers());
-      // }, []);
-    
-      // const handleScroll = (event) => {
-      //   const { scrollTop, clientHeight, scrollHeight } = event.target;
-      //   if (Math.ceil(scrollTop + clientHeight) === Math.ceil(scrollHeight)) {
-      //     dispatch(fetchUsers());
-      //   }
-      // };
+// const users = useSelector((state) => state.userReducer.users);
+// const dispatch = useDispatch();
+
+// useEffect(() => {
+//   dispatch(fetchUsers());
+// }, []);
+
+// const handleScroll = (event) => {
+//   const { scrollTop, clientHeight, scrollHeight } = event.target;
+//   if (Math.ceil(scrollTop + clientHeight) === Math.ceil(scrollHeight)) {
+//     dispatch(fetchUsers());
+//   }
+// };
